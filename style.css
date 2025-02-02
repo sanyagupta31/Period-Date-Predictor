@@ -1,0 +1,50 @@
+body {
+    background-image: url("periods1.jpg"); /* Make sure the path is correct */
+    background-size: cover; /* Ensures full screen cover */
+    background-repeat: no-repeat; /* Prevents repeating */
+    background-position: center center; /* Centers the image */
+    background-attachment: fixed; /* Keeps background fixed */
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+
+.container {
+    width: 40%;  /* Width ko 40% se 30% kar diya */
+    max-width: 350px;  /* Max width set kar diya */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px gray;
+    background: rgba(255, 255, 255, 0.8); /* Background white for visibility */
+    backdrop-filter: blur(10px);
+}
+
+h2{
+    color:#d65692;
+}
+form{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+}
+input , button{
+    margin:10px;
+    padding:10px;
+    width:80%;
+}
+button{
+    background-color: #d63384;
+    color:white;
+    border:none;
+    cursor:pointer;
+
+}
+button:hover{
+    background-color: #a91b64;
+}
