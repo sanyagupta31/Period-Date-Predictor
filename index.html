@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Period Date Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Period Date Predictor</h2>
+        <form id="predict-form">
+            <label for="date">Last Period Date:</label>
+            <input type="date" id="date" name="date" required>
+            
+            <button type="submit">Predict Next Period</button>
+        </form>
+
+        <h3 id="result"></h3>
+    </div>
+
+    <script>
+        document.getElementById("predict-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let dateInput = document.getElementById("date").value;
+
+            fetch("/predict", {
+                method: "POST",
+                body: new URLSearchParams({ "date": dateInput }),
+                headers: { "Content-Type": "application/x-www-form-urlencoded" }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.prediction) {
+                    document.getElementById("result").innerHTML = "Next Predicted Period Date: <b>" + data.prediction + "</b>";
+                } else {
+                    document.getElementById("result").innerHTML = "Error: " + data.error;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
